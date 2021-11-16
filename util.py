@@ -7,5 +7,5 @@ def print_matrix(mat):
     m, n = mat.shape
     for i in range(m):
         for j in range(n):
-            print("%8.2f" % mat[i, j], end=',')
+            print("%8.2f" % mat[i, j], end=' ')
         print()
