@@ -1,4 +1,7 @@
 import numpy as np
+import sys
+sys.path.append('..')
+from util import print_matrix
 
 
 def PLU_Factorization(A):
@@ -26,12 +29,20 @@ def PLU_Factorization(A):
 
 
 def main():
+    # 测试样例
     A = np.matrix([[1, 2, 4, 17], [3, 6, -12, 3], [2, 3, -3, 2], [0, 2, -2, 6]]).astype(float)
     P, L, U = PLU_Factorization(A.copy())   # 求P, L, U分解的结果（直接输入A会被修改）
     P, L, U = np.matrix(P), np.matrix(L), np.matrix(U) 
-    print("交换矩阵P：\n", P)
-    print("L矩阵：\n", L)
-    print("U矩阵：\n", U)
+    print("A矩阵：")
+    print_matrix(A)
+    print("交换矩阵P：")
+    print_matrix(P)
+    print("L矩阵：")
+    print_matrix(L)
+    print("U矩阵：")
+    print_matrix(U)
+    print("验证正确性：(A=P^T*L*U)")
+    print_matrix(P.T @ L @ U)
 
 
 if __name__ == '__main__':
