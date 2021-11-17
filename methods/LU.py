@@ -1,16 +1,17 @@
 import numpy as np
 import sys
 sys.path.append('..')
-from util import print_matrix
+from util import print_matrix, calculate_rank
 
 
 def PLU_Factorization(A):
     # 输入一个 n*n 的方阵，使用numpy格式
-    # 输出三个矩阵，分别是 P， L， U
+    # 输出PLU分解后的三个矩阵，分别是 P， L， U
     if A is None or (A.shape[0] != A.shape[1]):  # 判断是否为方阵
-        print("输入必须为方阵！")
-        return
+        return 0, 0, 0
     n = A.shape[0]   # 矩阵的维度n
+    if calculate_rank(A) != n:  # 判断矩阵是否可逆
+        return 1, 1, 1
     P = np.eye(n)    # 交换矩阵P
     for j in range(n):
         index = np.argmax(np.abs(A[j:n, j]))   # 找到主元最大的行
@@ -19,20 +20,23 @@ def PLU_Factorization(A):
         for i in range(j+1, n):    # 对主元下面的行进行消元操作
             a = A[i, j] / A[j, j]       # 计算消元系数
             A[i, j:] = A[i, j:] - a * A[j, j:]      # 消元
-            if np.all(A[i, :]==0):      # 判断可逆：若消元后出现全为0的行，则矩阵不可逆，无法进行分解
-                print("输入矩阵必须可逆！")
-                return
             A[i, j] = a     # 记录消元系数
     L = np.eye(n) + np.tril(A, -1)   # 最后L为A的下三角（去除主对角线）加上一个单位阵
-    U = np.triu(A)  # U为A的上三角集齐主对角线
+    U = np.triu(A)  # U为A的上三角及其主对角线
     return P, L, U
 
 
 def main():
     # 测试样例
     A = np.matrix([[1, 2, 4, 17], [3, 6, -12, 3], [2, 3, -3, 2], [0, 2, -2, 6]]).astype(float)
+    # A = np.matrix([[1, 2, 4, 17], [3, 6, -12, 3], [2, 3, -3, 2], [1, 2, 4, 17]]).astype(float)
     P, L, U = PLU_Factorization(A.copy())   # 求P, L, U分解的结果（直接输入A会被修改）
-    P, L, U = np.matrix(P), np.matrix(L), np.matrix(U) 
+    if type(P) is not np.ndarray  or type(L) is not np.ndarray or type(U) is not np.ndarray:
+        if P == 0:
+            print("输入必须为方阵！")
+        elif P == 1:
+            print("输入矩阵必须可逆！")
+        return 
     print("A矩阵：")
     print_matrix(A)
     print("交换矩阵P：")

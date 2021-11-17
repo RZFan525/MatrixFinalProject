@@ -1,13 +1,20 @@
 import numpy as np
 import sys
 sys.path.append('..')
-from util import print_matrix
+from util import print_matrix, calculate_rank
 
 
 def gram_schmidt(A):
-    # 输入一个 n*m 的方阵，使用numpy格式
-    # 输出二个矩阵，分别是 Q，R
+    # 输入一个 n*m 的矩阵，必须列向量无关，使用numpy格式
+    # 输出二个矩阵，分别是 Q(n*m)，R(m*m)
     n, m = A.shape  #  矩阵的形状
+    # 先判断是否列向量无关：
+    # 首先求矩阵A的秩
+    r = calculate_rank(A)
+    if r != m:
+        print("输入矩阵不是列向量无关的!")
+        return 0, 0
+
     Q = np.zeros((n, m))    # 建立一个空的Q矩阵，形状为n*m
     R = np.zeros((m, m))    # 建立一个空的R矩阵，形状为m*m
     for i in range(m):      # 循环处理A的每一列
@@ -29,7 +36,10 @@ def main():
     B = np.matrix([[0, -20, -14], [3, 27, -4], [4, 11, -2]]).astype(float)
     A = np.matrix([[4, -3, 4], [2, -14, -3], [-2, 14, 0], [1, -7, 15]]).astype(float)
     A = np.matrix([[1, 0, 0, 1, 0], [0, 1, 0, 1, 0], [0, 0, 1, 1, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 1]]).astype(float)
+    A = np.matrix([[4, -3], [2, -14], [-2, 14], [1, -7]]).astype(float)
     Q, R = gram_schmidt(A)
+    if type(Q) is not np.ndarray  or type(R) is not np.ndarray:
+        return 
     print("A矩阵：")
     print_matrix(A)
     print("Q矩阵：")
