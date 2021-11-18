@@ -40,7 +40,7 @@ A=\begin{pmatrix} 1&2&4&17\\3&6&-12&3\\2&3&-3&2 \\ 0&2&-2&6 \end{pmatrix}
 $$
 矩阵A在文件中写为：
 
-![image-20211118144624938](C:\Users\85318\Documents\我的坚果云\研一秋季课程\矩阵分析与应用\MatrixFinalProject\README.assets\image-20211118144624938.png)
+![image-20211118144624938](.\README.assets\image-20211118144624938.png)
 
 ### 3. 程序运行方法
 
@@ -50,7 +50,7 @@ $$
 
 根据提示输入$0-6$的序号选择对应的功能，然后根据提示输入数据的文件名后回车即可运行。
 
-![image-20211118162328130](C:\Users\85318\Documents\我的坚果云\研一秋季课程\矩阵分析与应用\MatrixFinalProject\README.assets\image-20211118162328130.png)
+![image-20211118162328130](.\README.assets\image-20211118162328130.png)
 
 
 
@@ -68,7 +68,7 @@ $$
 
 **例子：**
 
-![image-20211118162628454](C:\Users\85318\Documents\我的坚果云\研一秋季课程\矩阵分析与应用\MatrixFinalProject\README.assets\image-20211118162628454.png)
+![image-20211118162628454](.\README.assets\image-20211118162628454.png)
 
 **详细代码及注释：**
 
@@ -112,7 +112,7 @@ def PLU_Factorization(A):
 
 **例子:**
 
-![image-20211118163649120](C:\Users\85318\Documents\我的坚果云\研一秋季课程\矩阵分析与应用\MatrixFinalProject\README.assets\image-20211118163649120.png)
+![image-20211118163649120](.\README.assets\image-20211118163649120.png)
 
 **详细代码及注释：**
 
@@ -160,7 +160,7 @@ def gram_schmidt(A):
 
 **例子:**
 
-![image-20211118164530123](C:\Users\85318\Documents\我的坚果云\研一秋季课程\矩阵分析与应用\MatrixFinalProject\README.assets\image-20211118164530123.png)
+![image-20211118164530123](.\README.assets\image-20211118164530123.png)
 
 **详细代码及注释:**
 
@@ -202,7 +202,7 @@ def house_holder(A):
 
 **例子：**
 
-![image-20211118164912939](C:\Users\85318\Documents\我的坚果云\研一秋季课程\矩阵分析与应用\MatrixFinalProject\README.assets\image-20211118164912939.png)
+![image-20211118164912939](.\README.assets\image-20211118164912939.png)
 
 **详细代码及注释:**
 
@@ -246,7 +246,7 @@ U是$m\times m$的正交矩阵，V是$n\times n$的正交矩阵，R是$\begin{pm
 
 **例子：**
 
-![image-20211118221710553](C:\Users\85318\Documents\我的坚果云\研一秋季课程\矩阵分析与应用\MatrixFinalProject\README.assets\image-20211118221710553.png)
+![image-20211118221710553](.\README.assets\image-20211118221710553.png)
 
 **详细代码及注释:**
 
@@ -301,7 +301,7 @@ def URV(A):
 
 **例子：**
 
-![image-20211118223350635](C:\Users\85318\Documents\我的坚果云\研一秋季课程\矩阵分析与应用\MatrixFinalProject\README.assets\image-20211118223350635.png)
+![image-20211118223350635](.\README.assets\image-20211118223350635.png)
 
 **详细代码及注释:**
 
@@ -349,7 +349,7 @@ def det(A):
 
 **例子：**
 
-![image-20211118224256602](C:\Users\85318\Documents\我的坚果云\研一秋季课程\矩阵分析与应用\MatrixFinalProject\README.assets\image-20211118224256602.png)
+![image-20211118224256602](.\README.assets\image-20211118224256602.png)
 
 **详细代码及注释:**
 
