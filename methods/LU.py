@@ -9,10 +9,10 @@ def PLU_Factorization(A):
     # 输出PLU分解后的三个矩阵，分别是 P， L， U
     A = A.copy()
     if A is None or (A.shape[0] != A.shape[1]):  # 判断是否为方阵
-        return 0, 0, 0
+        return 0, 0, 0    # 不满足条件，直接返回，返回数字为了后续判断
     n = A.shape[0]   # 矩阵的维度n
     if calculate_rank(A) != n:  # 判断矩阵是否可逆
-        return 1, 1, 1
+        return 1, 1, 1    # 不满足条件，直接返回，返回数字为了后续判断
     P = np.eye(n)    # 交换矩阵P
     for j in range(n):
         index = np.argmax(np.abs(A[j:n, j]))   # 找到主元最大的行

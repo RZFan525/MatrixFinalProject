@@ -30,7 +30,7 @@ def main():
     print("请选择需要执行的方法编号:")
     print("0 : PLU分解(输入必须是可逆的方阵，输出分别是P,L,U矩阵)")
     print("1 : Gram_Schmidt正交化求QR分解(输入必须是列向量无关的矩阵,输出分别是Q,R矩阵)")
-    print("2 : House Holder约简求QR分解(输入为m*n的矩阵,输出分别是Q,R矩阵)")
+    print("2 : Householder约简求QR分解(输入为m*n的矩阵,输出分别是Q,R矩阵)")
     print("3 : Givens约简求QR分解(输入为m*n的矩阵,输出分别是Q,R矩阵)")
     print("4 : URV分解(输入为m*n的矩阵,输出分别是U,R,V矩阵)")
     print("5 : 求矩阵的行列式(输入必须为方阵,输出是行列式值)")
