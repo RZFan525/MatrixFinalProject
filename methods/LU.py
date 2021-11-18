@@ -7,6 +7,7 @@ from util import print_matrix, calculate_rank
 def PLU_Factorization(A):
     # 输入一个 n*n 的方阵，使用numpy格式
     # 输出PLU分解后的三个矩阵，分别是 P， L， U
+    A = A.copy()
     if A is None or (A.shape[0] != A.shape[1]):  # 判断是否为方阵
         return 0, 0, 0
     n = A.shape[0]   # 矩阵的维度n

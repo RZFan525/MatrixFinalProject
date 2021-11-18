@@ -1,13 +1,20 @@
 import numpy as np
+import os
 
 
 # 打印矩阵
 np.set_printoptions(precision=2, suppress=True)  # 保留小数点2位，小数不用科学计数法
 def print_matrix(mat):
-    m, n = mat.shape
-    for i in range(m):
-        for j in range(n):
-            print("%8.2f" % mat[i, j], end=' ')
+    if len(mat.shape) == 2:
+        m, n = mat.shape
+        for i in range(m):
+            for j in range(n):
+                print("%8.2f" % mat[i, j], end=' ')
+            print()
+    elif len(mat.shape) == 1:
+        n = mat.shape[0]
+        for i in range(n):
+            print("%8.2f" % mat[i], end=' ')
         print()
 
 def calculate_rank(A):
@@ -34,5 +41,8 @@ def calculate_rank(A):
 
 def read_matrix(file_path):
     # 从文件读入矩阵
-    data = np.loadtxt(file_path, dtype=np.float32, delimiter=' ')
+    if not os.path.exists(file_path):
+        print("请给出正确的文件路径")
+        return
+    data = np.loadtxt(file_path, dtype=np.float64, delimiter=' ')
     return data

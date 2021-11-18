@@ -30,6 +30,7 @@ def main():
     A = np.matrix([[4, -3, 4], [2, -14, -3], [-2, 14, 0], [1, -7, 15]]).astype(float)
     # A = np.matrix([[4, -3], [2, -14], [-2, 14], [1, -7]]).astype(float)
     # A = np.matrix([[1, 0, 0, 1, 0], [0, 1, 0, 1, 0], [0, 0, 1, 1, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 1]]).astype(float)
+    A = np.matrix([[1, 2, 4, 17], [3, 6, -12, 3], [2, 3, -3, 2], [0, 2, -2, 6]]).astype(float)
     Q, R = house_holder(A)
     print("A矩阵：")
     print_matrix(A)

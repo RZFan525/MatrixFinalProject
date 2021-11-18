@@ -2,7 +2,6 @@ import numpy as np
 import sys
 sys.path.append('..')
 from util import print_matrix, calculate_rank
-from methods.LU import PLU_Factorization
 
 
 def det(A):
@@ -21,10 +20,11 @@ def det(A):
         index = np.argmax(np.abs(A[j:n, j]))   # 找到主元最大的行
         if index != 0:
             A[j, :], A[j+index, :] = A[j+index, :].copy(), A[j, :].copy()    # 交换行
-            P += 1
+            P += 1   # 记录交换次数
         for i in range(j+1, n):    # 对主元下面的行进行消元操作
             a = A[i, j] / A[j, j]       # 计算消元系数
             A[i, j:] = A[i, j:] - a * A[j, j:]      # 消元
+    # P是交换次数，交换奇数次是-1，交换偶数次是1，所以A的行列式值就是R的对角线元素乘符号
     Det = np.prod(np.diag(A)) * ((-1) ** P)
     return Det
 
